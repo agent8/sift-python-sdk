@@ -43,5 +43,5 @@ Documentation
 
 Documentation for the SDK can be found `here`_.
 
-.. _here: https://github.com/agent8/sift-python-sdk/blob/master/sift_sdk/python/docs/API.rst
+.. _here: https://github.com/agent8/sift-python-sdk/blob/master/docs/API.rst
 
