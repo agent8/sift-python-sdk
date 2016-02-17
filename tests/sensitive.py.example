@@ -1,0 +1,3 @@
+# Put your API key and secret from the Sift dashboard at sift.easilydo.com
+API_KEY = ''
+API_SECRET = ''

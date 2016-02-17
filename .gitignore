@@ -1,0 +1,27 @@
+# pyc files
+*.pyc
+
+# Logs
+pip-log.txt
+
+# Packages
+*.eggs
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+__pycache__
+
+# Sensitive files for testing
+sensitive.py
+*.eml
+
