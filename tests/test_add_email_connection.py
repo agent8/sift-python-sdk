@@ -3,10 +3,10 @@ import siftapi
 
 from .sensitive import API_KEY, API_SECRET
 
-class TestAddUser(TestCase):
+class TestAddEmailConnection(TestCase):
     def _setup(self):
         self.sift = siftapi.Sift(API_KEY, API_SECRET)
-        self.sift.add_user('test')
+        self.sift.add_user('test', 'en_US')
 
     def _teardown(self):
         self.sift.remove_user('test')

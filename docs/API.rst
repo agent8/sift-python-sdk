@@ -61,12 +61,13 @@ automatically create an account if it doesn't exist.
 **Parameters**
 
 * ``user``: A ``string`` that is the expected username of the new user.
+* ``locale``: A ``string`` that is the locale of the new user.
 
 **Example**
 
 .. code-block:: python
 
-    sift.add_user('username')
+    sift.add_user('username', 'en_US')
 
 remove_user
 ^^^^^^^^^^^

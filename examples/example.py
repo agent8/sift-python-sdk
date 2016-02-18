@@ -11,7 +11,7 @@ sift = siftapi.Sift(API_KEY, API_SECRET)
 
 # Add a new user
 print 'Example: Add user'
-sift.add_user('test')
+sift.add_user('test', 'en_US')
 
 # Email Discovery
 print 'Example: Discovery'

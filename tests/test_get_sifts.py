@@ -9,7 +9,7 @@ here = os.path.dirname(os.path.realpath(__file__))
 class TestGetSifts(TestCase):
     def _setup(self):
         self.sift = siftapi.Sift(API_KEY, API_SECRET)
-        self.sift.add_user('test')
+        self.sift.add_user('test', 'en_US')
         return
 
     def _teardown(self):

@@ -85,13 +85,18 @@ class Sift:
 
         return self._request('POST', '/discovery', data={'email': eml})
 
-    def add_user(self, user):
+    def add_user(self, user, locale):
         """Adds a new user
 
         Params:
             `user`: Username of the new user
+            `locale`: Locale of the new user, e.g. en_US
         """
-        return self._request('POST', '/users', data={'username': user})
+        data = {
+            'username': user,
+            'locale': locale,
+        }
+        return self._request('POST', '/users', data=data)
 
     def remove_user(self, user):
         """Removes a user
