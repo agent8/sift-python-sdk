@@ -21,6 +21,7 @@ setup(
 
     author='EasilyDo',
     author_email='production@easilydo.com',
+    license='MIT',
 
     keywords='email easilydo sift',
 
