@@ -41,7 +41,9 @@ Test cases are written in ``tests`` folder.
 Documentation
 -------------
 
-Documentation for the SDK can be found `here`_.
+Documentation for the SDK can be found `here <https://github.com/agent8/sift-python-sdk/blob/master/docs/API.rst>`__.
 
-.. _here: https://github.com/agent8/sift-python-sdk/blob/master/docs/API.rst
+Changelog
+---------
 
+Changelog can be found `here <https://github.com/agent8/sift-python-sdk/blob/master/docs/CHANGELOG.rst>`__.
