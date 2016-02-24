@@ -213,18 +213,6 @@ class Sift:
                 '/users/%s/sifts/%s' % (user, sift_id)
             )
 
-    def get_shipment(self, user, shipment_id):
-        """Get a new shipment information from the user
-
-        Params:
-            `user`: Username of user to get shipment information from
-            `shipment_id`: ID of shipment
-        """
-        return self._request(
-                'GET',
-                '/users/' + user + '/shipments/' + shipment_id
-            )
-
     def get_token(self, user):
         """Get a new token for specific user
 
