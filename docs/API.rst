@@ -249,23 +249,6 @@ Gets a single Sift(task) from the user.
 
     sift.get_sift('username', 123)
 
-get_shipment
-^^^^^^^^^^^^
-
-Get new shipmenet information from the user.
-
-**Parameters**
-
-* ``user``: A ``string`` that is the username of the user to get the shipment
-  from.
-* ``shipment_id``: An ``integer`` that is the ID of the shipment to get.
-
-**Example**
-
-.. code-block:: python
-
-    sift.get_shipment('username', 123)
-
 get_token
 ^^^^^^^^^
 
