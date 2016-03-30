@@ -201,13 +201,16 @@ class Sift:
         }
         return self._request('GET', '/users/%s/sifts' % user, params=params)
 
-    def get_sift(self, user, sift_id):
+    def get_sift(self, user, sift_id, include_eml=0):
         """Get a single sift from the user
 
         Params:
             `user`: Username of user to get Sift from
             `sift_id`: ID of particular Sift to get
         """
+        params = {
+            'include_eml': include_eml
+        }
         return self._request(
                 'GET',
                 '/users/%s/sifts/%s' % (user, sift_id)

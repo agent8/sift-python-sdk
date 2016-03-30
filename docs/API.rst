@@ -109,7 +109,8 @@ Adds a new email connection to the user account.
 
 * ``user``: A ``string`` that is the expected username of the user to add
   the email connection to.
-* ``data``: Account specific parameters, see below for which parameter to include.
+* ``data``: Account specific parameters, see below for which parameter to
+  include.
 
 **Account Specific Parameters**
 
@@ -224,8 +225,10 @@ Gets a single Sift(task) from the user.
 
 **Parameters**
 
-* ``user``: A ``string`` that is the username of the user to get the Sift from
-* ``sift_id``: An ``integer`` that is the ID of the Sift to get from the user
+* ``user``: A ``string`` that is the username of the user to get the Sift from.
+* ``sift_id``: An ``integer`` that is the ID of the Sift to get from the user.
+* ``include_eml`` (Optional): An ``integer`` that receives the email as an
+  `eml` file.
 
 **Example**
 
@@ -240,8 +243,8 @@ Gets a single Sift(task) from the user.
 
 **Parameters**
 
-* ``user``: A ``string`` that is the username of the user to get the Sift from
-* ``sift_id``: An ``integer`` that is the ID of the Sift to get from the user
+* ``user``: A ``string`` that is the username of the user to get the Sift from.
+* ``sift_id``: An ``integer`` that is the ID of the Sift to get from the user.
 
 **Example**
 
@@ -272,9 +275,9 @@ Gives feedback to the EasilyDo team.
 **Parameters**
 
 * ``email``: A ``string`` that is the contents of the eml file, similar to the
-  one sent to ``discovery``
+  one sent to ``discovery``.
 * ``locale``: A ``string`` that is the locale of the email.
-* ``timezone``: A ``string`` that is the timezone of the email
+* ``timezone``: A ``string`` that is the timezone of the email.
 
 **Example**
 
