@@ -188,7 +188,7 @@ class Sift:
                 '/users/%s/email_connections/%s' % (user, connection_id)
             )
 
-    def get_sifts(self, user, limit=100, offset=0, last_update_time=0):
+    def get_sifts(self, user, limit=100, offset=0, domains=None, last_update_time=0):
         """Get all Sifts from the user
 
         Params:
@@ -199,6 +199,8 @@ class Sift:
             'offset': offset,
             'last_update_time': last_update_time,
         }
+        if domains:
+            params['domains'] = ','.join(domains)
         return self._request('GET', '/users/%s/sifts' % user, params=params)
 
     def get_sift(self, user, sift_id, include_eml=0):
