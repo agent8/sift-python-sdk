@@ -208,9 +208,11 @@ Gets all Sifts(tasks) from the user.
 * ``user``: A ``string`` that is the username of the user to get the Sifts from.
 * ``limit`` (Optional): An ``integer`` that is the maximum number of results to
     return.
-* ``offset``: An ``integer``, starts the list at this offset (zero-based).
-* ``last_update_time``: An ``integer`` which is an Epoch timestamp. Returns
+* ``offset`` (Optional): An ``integer``, starts the list at this offset (zero-based).
+* ``last_update_time`` (Optional): An ``integer`` which is an Epoch timestamp. Returns
     results with last update time more recent than this time.
+* ``domain`` (Optional): A ``list`` of ``string`` that filters the Sift payload by the type, e.g.
+    ``shipment``, ``flight``, etc.
 
 **Example**
 
