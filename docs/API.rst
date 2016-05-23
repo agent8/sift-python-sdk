@@ -207,12 +207,12 @@ Gets all Sifts(tasks) from the user.
 
 * ``user``: A ``string`` that is the username of the user to get the Sifts from.
 * ``limit`` (Optional): An ``integer`` that is the maximum number of results to
-    return.
+  return.
 * ``offset`` (Optional): An ``integer``, starts the list at this offset (zero-based).
 * ``last_update_time`` (Optional): An ``integer`` which is an Epoch timestamp. Returns
-    results with last update time more recent than this time.
+  results with last update time more recent than this time.
 * ``domain`` (Optional): A ``list`` of ``string`` that filters the Sift payload by the type, e.g.
-    ``shipment``, ``flight``, etc.
+  ``shipment``, ``flight``, etc.
 
 **Example**
 
@@ -231,22 +231,6 @@ Gets a single Sift(task) from the user.
 * ``sift_id``: An ``integer`` that is the ID of the Sift to get from the user.
 * ``include_eml`` (Optional): An ``integer`` that receives the email as an
   `eml` file.
-
-**Example**
-
-.. code-block:: python
-
-    sift.get_sift('username', 123)
-
-get_sift
-^^^^^^^^^
-
-Gets a single Sift(task) from the user.
-
-**Parameters**
-
-* ``user``: A ``string`` that is the username of the user to get the Sift from.
-* ``sift_id``: An ``integer`` that is the ID of the Sift to get from the user.
 
 **Example**
 
