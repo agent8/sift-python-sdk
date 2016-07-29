@@ -211,7 +211,7 @@ Gets all Sifts(tasks) from the user.
 * ``offset`` (Optional): An ``integer``, starts the list at this offset (zero-based).
 * ``last_update_time`` (Optional): An ``integer`` which is an Epoch timestamp. Returns
   results with last update time more recent than this time.
-* ``domain`` (Optional): A ``list`` of ``string`` that filters the Sift payload by the type, e.g.
+* ``domains`` (Optional): A ``list`` of ``string`` that filters the Sift payload by the type, e.g.
   ``shipment``, ``flight``, etc.
 
 **Example**
