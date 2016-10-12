@@ -16,7 +16,8 @@ VERSION = version.__version__
 
 
 class Sift:
-    def __init__(self, api_key, api_secret):
+    def __init__(self, api_key, api_secret, env='production'):
+        self._env = env
         self.api_key = api_key
         self.api_secret = api_secret
 
@@ -35,7 +36,7 @@ class Sift:
                 method,
                 '/%s%s' % (VERSION, url)
             ).hexdigest()
-        url = build_url(url)
+        url = build_url(self._env, url)
 
         try:
             r = requests.request(method, url, params=params, data=data)

@@ -4,8 +4,11 @@
 from . import version
 
 VERSION = version.__version__
-API_URL = "https://api.easilydo.com"
+API_URL = {
+    'production': "https://api.easilydo.com",
+    'engineering': "https://api-engineering.easilydo.com",
+}
 
-def build_url(path):
-    return '%s/%s%s' % (API_URL, VERSION, path)
-
+def build_url(env, path):
+    url = API_URL[env]
+    return '%s/%s%s' % (url, VERSION, path)
