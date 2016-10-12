@@ -12,7 +12,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 
 setup(
     name='siftapi',
-    version='1.0.5',
+    version='1.0.6',
 
     description='A Python wrapper for EasilyDo\'s Sift API',
     long_description=long_description,

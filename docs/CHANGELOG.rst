@@ -2,6 +2,13 @@
 Changelog
 =========
 
+v1.0.6
+------
+
+2016-10-12
+
+* Include environment support for initializing `SiftAPI` object, for internal use
+
 v1.0.5
 ------
 
