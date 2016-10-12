@@ -2,6 +2,14 @@
 Changelog
 =========
 
+v1.0.5
+------
+
+2016-07-29
+
+* Include `domains` param for `get_sifts` to filter Sift payloads by domain
+* Update docs
+
 v1.0.4
 ------
 
