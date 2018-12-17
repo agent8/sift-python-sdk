@@ -93,12 +93,18 @@ Get all email connections linked to the user account.
 
 * ``user``: A ``string`` that is the expected username of the user to obtain
   the email connections from.
+* ``limit``: The maximum number of results to return. Developer can set any
+  value between 0 to 100 and max is 100. Default value is 100
+* ``offset``: Start the list at this offset (zero-indexed).
+* ``include_invalid``: set to ``True`` if you want to get your invalid email
+  connections as well. Defaults to ``False``
 
 **Example**
 
 .. code-block:: python
 
-    sift.get_email_connections('username')
+    sift.get_email_connections('username', limit=100, offset=0,
+                               include_invalid=False)
 
 add_email_connection
 ^^^^^^^^^^^^^^^^^^^^
