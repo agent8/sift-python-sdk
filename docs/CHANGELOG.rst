@@ -2,6 +2,15 @@
 Changelog
 =========
 
+v1.1.7
+------
+
+2018-12-17
+
+* Add missing parameters `limit`, `offset`, `include_invalid` for
+  `get_email_connections`
+* Fix minor typo issues in codebase
+
 v1.0.6
 ------
 
