@@ -23,7 +23,6 @@ Usage
   import siftapi
 
   sift = siftapi.Sift(API_KEY, API_SECRET)
-  sift.get_user(<username>)
 
 Testing
 -------
