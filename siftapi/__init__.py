@@ -215,13 +215,10 @@ class Sift:
             `user`: Username of user to get Sift from
             `sift_id`: ID of particular Sift to get
         """
-        params = {
-            'include_eml': include_eml
-        }
-        return self._request(
-                'GET',
-                '/users/%s/sifts/%s' % (user, sift_id)
-            )
+        params = {'include_eml': include_eml}
+        return self._request('GET',
+                             '/users/%s/sifts/%s' % (user, sift_id),
+                             params=params)
 
     def get_token(self, user):
         """Get a new token for specific user
