@@ -107,13 +107,19 @@ class Sift:
         """
         return self._request('DELETE', '/users/%s' % user)
 
-    def get_email_connections(self, user):
+    def get_email_connections(self, user, limit=100, offset=0, include_invalid=False):
         """Get all email connections linked to the account
 
         Params:
             `user`: Username of the user
         """
-        return self._request('GET', '/users/%s/email_connections' % user)
+        params = {
+            'limit': limit,
+            'offset': offset,
+            'include_invalid': 1 if include_invalid else 0
+        }
+        return self._request('GET', '/users/%s/email_connections' % user,
+                             params=params)
 
     def add_email_connection(self, user, data):
         """Link a new email connection to the account
