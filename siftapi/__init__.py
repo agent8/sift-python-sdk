@@ -43,8 +43,7 @@ class Sift:
             response = json.loads(e.read())
             raise APIError(response)
         except requests.Timeout:
-            raise APIError({message: 'Request timeout.'})
-            return
+            raise APIError({'message': 'Request timeout.'})
 
         return r.json()
 
@@ -176,7 +175,7 @@ class Sift:
                 }
         """
         if data is None:
-            raise APIError({message: 'Additional params are required'})
+            raise APIError({'message': 'Additional params are required'})
         return self._request(
                 'POST',
                 '/users/%s/email_connections' % user,
