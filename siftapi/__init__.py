@@ -8,10 +8,9 @@ import time
 import requests
 
 from . import version
-from . import utils
-from . import exceptions
+from .utils import build_url
+from .exceptions import APIError
 
-build_url = utils.build_url
 VERSION = version.__version__
 
 
