@@ -30,7 +30,7 @@ class Sift:
         args.update(params)
         args.update(data)
 
-        params['signature'] = signature = self._generate_signature(
+        params['signature'] = self._generate_signature(
                 args,
                 method,
                 '/%s%s' % (VERSION, url)
