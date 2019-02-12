@@ -73,6 +73,17 @@ class Sift:
             'timestamp': int(time.time())
         }
 
+    def _parse_filter_params(self, params):
+        res = {}
+        for field, filters in params.items():
+            if not isinstance(filters, list):
+                print('%s is not a list, not added as a filter param.' % field)
+                continue
+
+            res[field] = json.dumps(filters)
+
+        return res
+
     def discovery(self, filename):
         """Discovery engine
 
@@ -227,6 +238,84 @@ class Sift:
             `user`: Username of user to get token from
         """
         return self._request('POST', '/connect_token', data={'username': user})
+
+    def get_email(self, username, email_id):
+        """Returns the email content for a single user.
+
+        Params:
+            `username`: Username of user to retrieve email for
+            `email_id`: Unique ID of the email to retrieve the email for
+        """
+        path = 'users/%s/emails/%s' % (username, email_id)
+        return self._request('GET', path)
+
+    def get_emails_by_user(self, username, limit=100, offset=0):
+        """Returns all emails for a specific user, this does not return the
+        email content itself, only the metadata.
+
+        Params:
+            `username`: Username of user to get emails
+            `limit`: The maximum number of results to return, defaults to 100
+            `offset`: Start the list at this offset (0-indexed), defaults to 0
+        """
+        path = 'users/%s/emails' % username
+        params {'limit': limit, 'offset': offset}
+        return self._request('GET', path)
+
+    def get_emails_by_developer(self, limit=100, offset=0):
+        path = 'emails'
+        params = {'limit': limit, 'offset': offset}
+        return self.request('GET', path, params=params)
+
+    def create_email_filter(self, description=None, **kwargs):
+        """Creates a new email filter to get a webhook for.
+        Params:
+            `description`: Description of the filter
+            `**kwargs`: Supported filter rules, each rule should be a list of
+                filter strings as documented in the documentation.
+        """
+        path = 'emails/filters'
+        data = self._parse_filter_params(kwargs)
+        if description:
+            data['description'] = description
+
+        return self._request('POST', path, data=data)
+
+    def get_email_filters(self, limit=100, offset=0):
+        """Returns a list of email filters created by the developer.
+
+        Params:
+            `limit`: The maximum number of results to return, defaults to 100
+            `offset`: Start the list at this offset (0-indexed), defaults to 0
+        """
+        path = 'emails/filters'
+        return self._request('GET', path)
+
+    def get_email_filter(self, filter_id):
+        """Return the detail of a single email filter created by the developer.
+
+        Params:
+            `filter_id`: Unique ID of the filter
+        """
+        path = 'emails/filters/%s' % filter_id
+        return self._request('GET', path)
+
+    def delete_email_filter(self, filter_id):
+        """Deletes the email filter created by the developer.
+
+        Params:
+            `filter_id`: Unique ID of the filter
+        """
+        path = 'emails/filters/%s' % filter_id
+        return self._request('DELETE', path)
+
+    def update_email_filter(self, filter_id, description=None, **kwargs):
+        path = 'emails/filters/%s' % filter_id
+        data = self._parse_filter_params(kwargs)
+        if description:
+            data['description'] = description
+
+        return self._request('PUT', path, data=data)
 
     def post_feedback(self, email, locale, timezone):
         """Give feedback to the EasilyDo team
