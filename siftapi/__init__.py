@@ -36,10 +36,10 @@ class Sift:
         args.update(data)
 
         params['signature'] = self._generate_signature(
-                args,
-                method,
-                '/%s%s' % (VERSION, url)
-            ).hexdigest()
+            args,
+            method,
+            '/%s%s' % (VERSION, url)
+        ).hexdigest()
         url = build_url(self._env, url)
 
         try:
@@ -264,7 +264,7 @@ class Sift:
             `limit`: The maximum number of results to return, defaults to 100
             `offset`: Start the list at this offset (0-indexed), defaults to 0
         """
-        path = 'users/%s/emails' % username
+        path = '/users/%s/emails' % username
         params = {'limit': limit, 'offset': offset}
 
         return self._request('GET', path, params=params)
@@ -277,12 +277,12 @@ class Sift:
             `limit`: The maximum number of results to return, defaults to 100
             `offset`: Start the list at this offset (0-indexed), defaults to 0
         """
-        path = 'emails'
+        path = '/emails'
         params = {'limit': limit, 'offset': offset}
 
         return self._request('GET', path, params=params)
 
-    def create_email_filter(self, description=None, **kwargs):
+    def add_email_filter(self, description=None, **kwargs):
         """Creates a new email filter to get a webhook for.
 
         Params:
@@ -290,7 +290,7 @@ class Sift:
             `**kwargs`: Supported filter rules, each rule should be a list of
                 filter strings as documented in the documentation.
         """
-        path = 'emails/filters'
+        path = '/emails/filters'
         data = self._parse_filter_params(kwargs)
         if description:
             data['description'] = description
@@ -304,7 +304,7 @@ class Sift:
             `limit`: The maximum number of results to return, defaults to 100
             `offset`: Start the list at this offset (0-indexed), defaults to 0
         """
-        path = 'emails/filters'
+        path = '/emails/filters'
         params = {'limit': limit, 'offset': offset}
 
         return self._request('GET', path, params=params)
@@ -315,7 +315,7 @@ class Sift:
         Params:
             `filter_id`: Unique ID of the filter
         """
-        path = 'emails/filters/%s' % filter_id
+        path = '/emails/filters/%s' % filter_id
         return self._request('GET', path)
 
     def delete_email_filter(self, filter_id):
@@ -324,7 +324,7 @@ class Sift:
         Params:
             `filter_id`: Unique ID of the filter
         """
-        path = 'emails/filters/%s' % filter_id
+        path = '/emails/filters/%s' % filter_id
         return self._request('DELETE', path)
 
     def update_email_filter(self, filter_id, description=None, **kwargs):
@@ -334,7 +334,7 @@ class Sift:
             `filter_id`: Unique ID of the filter
             `...kwargs`: Fields as defined in the documentation page
         """
-        path = 'emails/filters/%s' % filter_id
+        path = '/emails/filters/%s' % filter_id
         data = self._parse_filter_params(kwargs)
         if description:
             data['description'] = description
