@@ -264,13 +264,13 @@ class Sift:
             `offset`: Start the list at this offset (0-indexed), defaults to 0
         """
         path = 'users/%s/emails' % username
-        params {'limit': limit, 'offset': offset}
-        return self._request('GET', path)
+        params = {'limit': limit, 'offset': offset}
+        return self._request('GET', path, params=params)
 
     def get_emails_by_developer(self, limit=100, offset=0):
         path = 'emails'
         params = {'limit': limit, 'offset': offset}
-        return self.request('GET', path, params=params)
+        return self._request('GET', path, params=params)
 
     def create_email_filter(self, description=None, **kwargs):
         """Creates a new email filter to get a webhook for.
@@ -294,7 +294,8 @@ class Sift:
             `offset`: Start the list at this offset (0-indexed), defaults to 0
         """
         path = 'emails/filters'
-        return self._request('GET', path)
+        params = {'limit': limit, 'offset': offset}
+        return self._request('GET', path, params=params)
 
     def get_email_filter(self, filter_id):
         """Return the detail of a single email filter created by the developer.
