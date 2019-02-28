@@ -45,8 +45,7 @@ class Sift(object):
         try:
             r = requests.request(method, url, params=params, data=data)
         except requests.HTTPError as e:
-            response = json.loads(e.read())
-            raise APIError(response)
+            raise APIError({'message': 'HTTPError raised.'})
         except requests.Timeout:
             raise APIError({'message': 'Request timeout.'})
 
