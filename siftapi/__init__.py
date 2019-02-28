@@ -245,7 +245,8 @@ class Sift:
         return self._request('POST', '/connect_token', data={'username': user})
 
     def get_email(self, username, email_id):
-        """Returns the email content for a single user.
+        """Returns the email content using the information sent as a webhook to
+        the developer.
 
         Params:
             `username`: Username of user to retrieve email for
@@ -265,15 +266,25 @@ class Sift:
         """
         path = 'users/%s/emails' % username
         params = {'limit': limit, 'offset': offset}
+
         return self._request('GET', path, params=params)
 
     def get_emails_by_developer(self, limit=100, offset=0):
+        """Returns all emails for the developer, this does not return the
+        email content itself, only the metadata.
+
+        Params:
+            `limit`: The maximum number of results to return, defaults to 100
+            `offset`: Start the list at this offset (0-indexed), defaults to 0
+        """
         path = 'emails'
         params = {'limit': limit, 'offset': offset}
+
         return self._request('GET', path, params=params)
 
     def create_email_filter(self, description=None, **kwargs):
         """Creates a new email filter to get a webhook for.
+
         Params:
             `description`: Description of the filter
             `**kwargs`: Supported filter rules, each rule should be a list of
@@ -295,6 +306,7 @@ class Sift:
         """
         path = 'emails/filters'
         params = {'limit': limit, 'offset': offset}
+
         return self._request('GET', path, params=params)
 
     def get_email_filter(self, filter_id):
@@ -316,6 +328,12 @@ class Sift:
         return self._request('DELETE', path)
 
     def update_email_filter(self, filter_id, description=None, **kwargs):
+        """Updates an existing email filter.
+
+        Params:
+            `filter_id`: Unique ID of the filter
+            `...kwargs`: Fields as defined in the documentation page
+        """
         path = 'emails/filters/%s' % filter_id
         data = self._parse_filter_params(kwargs)
         if description:
