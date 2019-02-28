@@ -19,7 +19,7 @@ class EmailFilterRuleException(Exception):
     pass
 
 
-class Sift:
+class Sift(object):
     def __init__(self, api_key, api_secret, env='production'):
         self._env = env
         self.api_key = api_key
