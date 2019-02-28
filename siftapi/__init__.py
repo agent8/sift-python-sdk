@@ -14,6 +14,11 @@ from .exceptions import APIError
 VERSION = version.__version__
 
 
+class EmailFilterRuleException(Exception):
+    """Raised when an email filter field is not a list."""
+    pass
+
+
 class Sift:
     def __init__(self, api_key, api_secret, env='production'):
         self._env = env
@@ -77,8 +82,8 @@ class Sift:
         res = {}
         for field, filters in params.items():
             if not isinstance(filters, list):
-                print('%s is not a list, not added as a filter param.' % field)
-                continue
+                msg = '%s is not a list, not added as a filter param.' % field
+                raise EmailFilterRuleException(msg)
 
             res[field] = json.dumps(filters)
 
