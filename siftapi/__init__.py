@@ -251,7 +251,7 @@ class Sift(object):
             `username`: Username of user to retrieve email for
             `email_id`: Unique ID of the email to retrieve the email for
         """
-        path = 'users/%s/emails/%s' % (username, email_id)
+        path = '/users/%s/emails/%s' % (username, email_id)
         return self._request('GET', path)
 
     def get_emails_by_user(self, username, limit=100, offset=0):

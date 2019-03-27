@@ -12,15 +12,15 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 
 setup(
     name='siftapi',
-    version='1.0.7',
+    version='1.1.0',
 
-    description='A Python wrapper for EasilyDo\'s Sift API',
+    description='A Python wrapper for Edison Sift API',
     long_description=long_description,
 
-    url='http://sift.easilydo.com',
+    url='http://developer.edison.tech',
 
-    author='EasilyDo',
-    author_email='production@easilydo.com',
+    author='Edison',
+    author_email='developer@edison.tech',
     license='MIT',
 
     keywords='email easilydo sift',

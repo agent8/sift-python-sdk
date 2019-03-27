@@ -259,6 +259,39 @@ Get a new token for specific user.
 
     sift.get_token('username')
 
+get_email
+^^^^^^^^^
+
+Returns the email content of a stored email matched by a custom email filter.
+
+**Parameters**
+
+* ``username``: A ``string`` that is the username of the user to get the email for.
+* ``email_id``: An ``integer`` that is the ID of the email, obtainable via listing all emails, or a webhook.
+
+**Example**
+.. code-block:: python
+
+   sift.get_email('username', 314159)
+
+
+get_emails_by_user
+^^^^^^^^^^^^^^^^^^
+
+Returns the email content of a stored email matched by a custom email filter.
+
+**Parameters**
+
+* ``username``: A ``string`` that is the username of the user to get the email for.
+
+**Example**
+.. code-block:: python
+
+   sift.get_emails_by_user('username', limit=100, offset=0)
+
+
+
+
 post_feedback
 ^^^^^^^^^^^^^
 
