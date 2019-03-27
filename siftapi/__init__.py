@@ -335,7 +335,7 @@ class Sift(object):
         """
         path = '/emails/filters/%s' % filter_id
         data = self._parse_filter_params(kwargs)
-        if description:
+        if description is not None:
             data['description'] = description
 
         return self._request('PUT', path, data=data)
