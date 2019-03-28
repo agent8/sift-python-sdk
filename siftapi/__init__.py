@@ -9,14 +9,9 @@ import requests
 
 from . import version
 from .utils import build_url
-from .exceptions import APIError
+from .exceptions import APIError, EmailFilterRuleException
 
 VERSION = version.__version__
-
-
-class EmailFilterRuleException(Exception):
-    """Raised when an email filter field is not a list."""
-    pass
 
 
 class Sift(object):

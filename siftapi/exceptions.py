@@ -14,3 +14,8 @@ class APIError(Exception):
             self.message = 'Server error'
 
         Exception.__init__(self, self.message)
+
+
+class EmailFilterRuleException(Exception):
+    """Raised when an email filter field is not a list."""
+    pass
