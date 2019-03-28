@@ -254,7 +254,8 @@ class Sift(object):
         path = '/users/%s/emails/%s' % (username, email_id)
         return self._request('GET', path)
 
-    def get_emails_by_user(self, username, limit=100, offset=0):
+    def get_emails(self, username, limit=None, offset=None,
+                   last_update_time=None):
         """Returns all emails for a specific user, this does not return the
         email content itself, only the metadata.
 
@@ -262,22 +263,16 @@ class Sift(object):
             `username`: Username of user to get emails
             `limit`: The maximum number of results to return, defaults to 100
             `offset`: Start the list at this offset (0-indexed), defaults to 0
+            `last_update_time`: Fetches emails after this timestamp
         """
         path = '/users/%s/emails' % username
-        params = {'limit': limit, 'offset': offset}
-
-        return self._request('GET', path, params=params)
-
-    def get_emails_by_developer(self, limit=100, offset=0):
-        """Returns all emails for the developer, this does not return the
-        email content itself, only the metadata.
-
-        Params:
-            `limit`: The maximum number of results to return, defaults to 100
-            `offset`: Start the list at this offset (0-indexed), defaults to 0
-        """
-        path = '/emails'
-        params = {'limit': limit, 'offset': offset}
+        params = {}
+        if limit is not None:
+            params['limit'] = limit
+        if offset is not None:
+            params['offset'] = offset
+        if last_update_time is not None:
+            params['last_update_time'] = last_update_time
 
         return self._request('GET', path, params=params)
 
